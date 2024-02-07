@@ -14,7 +14,13 @@ class MemoryAppServiceProvider extends ServiceProvider
             __DIR__ . '/path/to/assets' => public_path('vendor/memoryapp'),
         ], 'public');
         // Bootstrapping code here, such as routes, views, migrations, etc.
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        if (config('memory.modules.vehicle')) {
+            $this->loadMigrationsFrom(__DIR__ . '/../database/migrations/vehicle');
+            // Load routes, views, etc., related to the vehicle module
+        }
+        $this->publishes([
+            __DIR__ . '/config/memory.php' => config_path('memory.php'),
+        ], 'config');
     }
 
     public function register()

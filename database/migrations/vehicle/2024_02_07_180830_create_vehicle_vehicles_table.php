@@ -55,6 +55,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('vehicle_vehicles');
+        Schema::dropIfExists('memory_vehicle_vehicles');
     }
 };
