@@ -9,6 +9,7 @@ class YourController extends Controller
 {
     public function index()
     {
+
         return view('memoryapp::example');
     }
 }
