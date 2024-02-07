@@ -1,0 +1,27 @@
+{
+    "name": "ekstremedia/laravel-memory-app",
+    "description": "A Laravel package for personal memory tracking",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Terje Nesthus",
+            "email": "terje@nesthus.no"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ekstremedia\\MemoryApp\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ekstremedia\\MemoryApp\\MemoryAppServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.0"
+    }
+}
