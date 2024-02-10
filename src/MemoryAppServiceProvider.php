@@ -9,7 +9,7 @@ class MemoryAppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
-        $this->loadViewsFrom(__DIR__ . '/views', 'memoryapp');
+//        $this->loadViewsFrom(__DIR__ . '/views', 'memoryapp');
         $this->publishes([
             __DIR__ . '/path/to/assets' => public_path('vendor/memoryapp'),
         ], 'public');
