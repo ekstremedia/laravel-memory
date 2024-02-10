@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('plate_number');
             $table->string('brand');
             $table->string('model');
+            $table->integer('year')->nullable();
             $table->string('type')->nullable();
             $table->string('vin')->nullable();
             $table->date('registration_date')->nullable();

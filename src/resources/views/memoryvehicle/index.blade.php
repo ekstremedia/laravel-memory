@@ -14,7 +14,15 @@
 
         <div class="py-4">
             <h1 class="text-2xl font-semibold leading-tight">Vehicles</h1>
-            <a href="{{ route('memory.vehicles.create') }}">Add New Vehicle</a>
+            <a href="{{ route('memory.vehicles.create') }}">
+                <button class="flex items-center space-x-2 text-sm bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="submit">
+                    <i class="far fa-plus-square"></i>
+                    <span>
+                        Add New Vehicle
+                    </span>
+                </button>
+            </a>
             <!-- Add your table of vehicles here -->
         </div>
 

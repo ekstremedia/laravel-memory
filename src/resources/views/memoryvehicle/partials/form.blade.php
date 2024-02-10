@@ -9,7 +9,7 @@
     @foreach ($fields as $field)
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="{{ $field['name'] }}">
-                {{ $field['label'] }}
+                {{ $field['label'] }} @if($field['required']) <span class="text-red-700">*</span> @endif
             </label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error($field['name']) border-red-500 @enderror"
                    id="{{ $field['name'] }}"
