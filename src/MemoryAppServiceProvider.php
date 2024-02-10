@@ -21,7 +21,11 @@ class MemoryAppServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config/memory.php' => config_path('memory.php'),
         ], 'config');
+
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'memoryapp');
+
     }
+
 
     public function register()
     {

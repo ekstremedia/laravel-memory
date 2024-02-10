@@ -3,14 +3,13 @@
 
 namespace Ekstremedia\MemoryApp\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 
 class YourController extends Controller
 {
     public function index()
     {
-
-        return view('memoryapp::example');
+        return view('memoryapp::memoryvehicle.index');
     }
 }
 
