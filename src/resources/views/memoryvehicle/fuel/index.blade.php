@@ -1,9 +1,11 @@
-{{-- resources/views/memoryvehicle/index.blade.php --}}
+{{-- resources/views/memoryvehicle/fuel/index.blade.php --}}
 
 @extends('memoryapp::layouts.app')
 
 @section('content')
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <!-- Success Message -->
+
         <div class="py-4">
             <h1 class="text-2xl font-semibold leading-tight">Vehicles</h1>
             <a href="{{ route('memory.vehicles.create') }}">
@@ -11,7 +13,7 @@
                         type="submit">
                     <i class="far fa-plus-square"></i>
                     <span>
-                        Add New Vehicle
+                        Add fuel
                     </span>
                 </button>
             </a>
@@ -20,7 +22,7 @@
 
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-5">
-                @include('memoryapp::memoryvehicle.partials.vehicles_table', ['vehicles' => $vehicles])
+                @include('memoryapp::memoryvehicle.partials.fuel.vehicles_table', ['vehicles' => $vehicles])
             </div>
         </div>
     </div>

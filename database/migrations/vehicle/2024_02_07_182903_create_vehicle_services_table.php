@@ -15,12 +15,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('vehicle_id')->constrained('memory_vehicle_vehicles');
             $table->date('date_of_service');
-            $table->integer('mileage');
+            $table->integer('mileage')->nullable();
             $table->string('service_center_name');
             $table->string('service_center_id')->nullable();
             $table->boolean('oil_service')->nullable();
             $table->boolean('total_service')->nullable();
             $table->boolean('long_life_service')->nullable();
+            $table->decimal('price', 8, 2)->nullable();
+            $table->date('date_paid')->nullable();
             $table->text('additional_work')->nullable();
             $table->date('next_service_date')->nullable();
             $table->integer('next_service_mileage')->nullable();

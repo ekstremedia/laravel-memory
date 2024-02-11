@@ -40,6 +40,7 @@ return new class extends Migration {
             $table->string('vehicle_status')->nullable();
             $table->integer('weight')->nullable();
             $table->integer('width')->nullable();
+            $table->integer('length')->nullable();
             $table->boolean('condemned')->nullable();
             $table->foreignId('created_by_id')->nullable()->constrained('users');
             $table->foreignId('last_edited_by_id')->nullable()->constrained('users');

@@ -12,9 +12,6 @@
             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                 Year
             </th>
-            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                Last fuel
-            </th>
             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
         </tr>
         </thead>
@@ -47,24 +44,9 @@
                         {{ $vehicle->year }}
                     </a>
                 </td>
-                <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                    @if($vehicle->latestFuel)
-                        <a href="{{ route('memory.vehicles.fuel.show', ['vehicle_uuid' => $vehicle->uuid, 'fuel' => $vehicle->latestFuel->uuid]) }}"
-                           class="text-blue-600 hover:text-blue-900">
-                            {{ $vehicle->latestFuel->fuel_quantity }} L
-                        </a>
-                    @else
-                        no fuel
-                    @endif
-                    <a href="{{ route('memory.vehicles.fuel.create', ['vehicle_uuid' => $vehicle->uuid]) }}"
-                       class="hover:text-indigo-900 bg-green-400 hover:bg-green-500 px-2 py-1 rounded text-green-900 shadow transition duration-300">
-                        <i class="fa-solid fa-fw fa-gas-pump"></i>
-                        Add
-                    </a>
-                </td>
-
                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-right text-sm leading-5 font-medium">
-
+                    <a href="{{ route('memory.vehicles.fuel.create', $vehicle) }}"
+                       class="text-indigo-600 hover:text-indigo-900">Fuel</a>
                     <a href="{{ route('memory.vehicles.edit', $vehicle) }}"
                        class="text-indigo-600 hover:text-indigo-900">Edit</a>
                     <form class="inline" action="{{ route('memory.vehicles.destroy', $vehicle) }}" method="POST">

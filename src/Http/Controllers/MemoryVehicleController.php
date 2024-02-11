@@ -13,7 +13,9 @@ class MemoryVehicleController extends Controller
         $userId = auth()->id();
 
         // Fetch vehicles that were created by the logged-in user
-        $vehicles = MemoryVehicle::where('created_by_id', $userId)->get();
+        $vehicles = MemoryVehicle::where('created_by_id', $userId)
+            ->with('latestFuel')
+            ->get();
 
         return view('memoryapp::memoryvehicle.index', compact('vehicles'));
     }
@@ -96,7 +98,7 @@ class MemoryVehicleController extends Controller
             'plate_number' => 'required|string|max:255',
             'brand' => 'required|string|max:255',
             'model' => 'required|string|max:255',
-            'year' => 'required|digits:4|integer|min:1900|max:'.(date('Y')+1),
+            'year' => 'nullable|digits:4|integer|min:1900|max:' . (date('Y') + 1),
             'type' => 'nullable|string|max:255',
             'vin' => 'nullable|string|max:255',
             'registration_date' => 'nullable|date',

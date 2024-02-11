@@ -38,6 +38,12 @@ class MemoryVehicle extends Model
         return $this->hasMany(MemoryVehicleFuel::class, 'vehicle_id');
     }
 
+    // Method to get the latest fuel entry
+    public function latestFuel()
+    {
+        return $this->hasOne(MemoryVehicleFuel::class, 'vehicle_id')->latest();
+    }
+
     public function mileages()
     {
         return $this->hasMany(MemoryVehicleMileage::class, 'vehicle_id');
