@@ -5,13 +5,15 @@
 @section('content')
     <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div class="py-4">
-            <h1 class="text-2xl font-semibold leading-tight">Vehicles</h1>
+            <h1 class="text-2xl font-semibold leading-tight">
+                {{ trans('memoryapp::messages.vehicles') }}
+            </h1>
             <a href="{{ route('memory.vehicles.create') }}">
                 <button class="flex items-center space-x-2 text-sm bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit">
                     <i class="far fa-plus-square"></i>
                     <span>
-                        Add New Vehicle
+                        {{ trans('memoryapp::messages.vehicle.create') }}
                     </span>
                 </button>
             </a>

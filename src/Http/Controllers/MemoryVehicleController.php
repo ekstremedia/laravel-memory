@@ -52,7 +52,7 @@ class MemoryVehicleController extends Controller
         $validatedData = $this->validateRequest($request);
         $vehicle->update($validatedData);
 
-        return redirect()->route('memory.vehicles.index')->with('success', "Vehicle $vehicle->name updated successfully.");
+        return redirect()->route('memory.vehicles.index')->with('success', trans("memoryapp::messages.vehicle.updated_sucessfully", ['brandAndModel' => $vehicle->brand.' '.$vehicle->model]));
     }
 
     public function destroy(MemoryVehicle $vehicle)

@@ -10,7 +10,7 @@
                     <div>
                         <i class="fas fa-car  fa-fw"></i>
                         <span>
-                        Vehicles
+                        {{ trans('memoryapp::messages.vehicles') }}
                     </span>
                     </div>
                 </a>
