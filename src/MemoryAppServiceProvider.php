@@ -25,6 +25,10 @@ class MemoryAppServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'memoryapp');
 
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'memoryapp');
+
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/memory.php', 'memory'
+        );
     }
 
     public function register()

@@ -13,16 +13,29 @@
         html, body {
             height: 100%;
         }
+
+        [x-cloak] {
+            display: none !important;
+        }
     </style>
+    <script src="//unpkg.com/alpinejs" defer></script>
 
 </head>
 <body class="bg-indigo-100">
-@include('memoryapp::layouts.navbar')
-<div class="flex">
-    <div>
-        @include('memoryapp::layouts.sidebar')
-    </div>
-    <div class="container mx-auto px-4">
+
+<div x-data="{ sidebar_open: false }">
+    <!-- Navbar -->
+    @include('memoryapp::layouts.navbar')
+
+    <!-- Sidebar -->
+    @include('memoryapp::layouts.sidebar')
+
+    <!-- Other content -->
+</div>
+
+<div class="flex justify-start">
+
+    <div class="mx-auto container w-full">
         @if (session('success'))
             <div class="m-4 bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
                 <p class="font-bold">{{ trans('memoryapp::messages.general.Success') }}</p>

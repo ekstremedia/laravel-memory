@@ -64,7 +64,6 @@
                 </td>
 
                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-right text-sm leading-5 font-medium">
-
                     <a href="{{ route('memory.vehicles.edit', $vehicle) }}"
                        class="text-indigo-600 hover:text-indigo-900">{{ trans('memoryapp::messages.general.Edit') }}</a>
                     <form class="inline" action="{{ route('memory.vehicles.destroy', $vehicle) }}" method="POST">
