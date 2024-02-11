@@ -31,13 +31,6 @@ class MemoryVehicleFuelController extends Controller
         return view('memoryapp::memoryvehicle.fuel.create', compact('fields', 'vehicle'));
     }
 
-//    public function store(Request $request)
-//    {
-//        $validatedData = $this->validateRequest($request);
-//        MemoryVehicleFuel::create($validatedData);
-//        return redirect()->route('memory.vehicles.index')->with('success', 'Vehicle fuel created successfully.');
-//    }
-
     public function store(Request $request, $vehicle_uuid)
     {
         $vehicle = MemoryVehicle::where('uuid', $vehicle_uuid)->firstOrFail();

@@ -17,7 +17,10 @@
                    id="{{ $field['name'] }}"
                    type="{{ $field['type'] }}"
                    name="{{ $field['name'] }}"
-                   value="{{ old($field['name'], $field['name'] == 'date_of_fuel' && !isset($fuel) ? date('Y-m-d') : ($fuel->{$field['name']} ?? null)) }}"
+                   value="{{ old($field['name'],
+                        $field['name'] === 'date_of_fuel' && !isset($fuel) ? date('Y-m-d') :
+                        ($field['name'] === 'fuel_type' && isset($vehicle) ? $vehicle->fuel_type :
+                        ($fuel->{$field['name']} ?? null))) }}"
                    placeholder="{{ $field['label'] }}"
                     {{ $field['required'] ? 'required' : '' }}>
 
@@ -26,6 +29,7 @@
             @enderror
         </div>
     @endforeach
+
 
     <div class="flex items-center justify-between">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
