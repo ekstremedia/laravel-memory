@@ -1,4 +1,5 @@
 <?php
+
 // src/Http/Controllers/YourController.php
 
 namespace Ekstremedia\MemoryApp\Http\Controllers;
@@ -12,4 +13,3 @@ class YourController extends Controller
         return view('memoryapp::memoryvehicle.index');
     }
 }
-

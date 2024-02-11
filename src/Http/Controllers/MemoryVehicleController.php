@@ -2,9 +2,9 @@
 
 namespace Ekstremedia\MemoryApp\Http\Controllers;
 
-use Illuminate\Routing\Controller;
 use Ekstremedia\MemoryApp\Models\MemoryVehicle;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class MemoryVehicleController extends Controller
 {
@@ -23,6 +23,7 @@ class MemoryVehicleController extends Controller
     public function create()
     {
         $fields = $this->getFormFields();
+
         return view('memoryapp::memoryvehicle.create', compact('fields'));
     }
 
@@ -30,6 +31,7 @@ class MemoryVehicleController extends Controller
     {
         $validatedData = $this->validateRequest($request);
         MemoryVehicle::create($validatedData);
+
         return redirect()->route('memory.vehicles.index')->with('success', 'Vehicle created successfully.');
     }
 
@@ -41,6 +43,7 @@ class MemoryVehicleController extends Controller
     public function edit(MemoryVehicle $vehicle)
     {
         $fields = $this->getFormFields();
+
         return view('memoryapp::memoryvehicle.edit', compact('vehicle', 'fields'));
     }
 
@@ -48,12 +51,14 @@ class MemoryVehicleController extends Controller
     {
         $validatedData = $this->validateRequest($request);
         $vehicle->update($validatedData);
+
         return redirect()->route('memory.vehicles.index')->with('success', "Vehicle $vehicle->name updated successfully.");
     }
 
     public function destroy(MemoryVehicle $vehicle)
     {
         $vehicle->delete();
+
         return redirect()->route('memory.vehicles.index')->with('success', 'Vehicle deleted successfully.');
     }
 
@@ -73,10 +78,10 @@ class MemoryVehicleController extends Controller
             ['name' => 'vin', 'type' => 'text', 'label' => 'VIN', 'required' => false],
             ['name' => 'owner_name', 'type' => 'text', 'label' => 'Owner Name', 'required' => false],
             ['name' => 'owner_address', 'type' => 'text', 'label' => 'Owner Address', 'required' => false],
-//            ['name' => 'technical_classification', 'type' => 'text', 'label' => 'Technical Classification', 'required' => false],
+            //            ['name' => 'technical_classification', 'type' => 'text', 'label' => 'Technical Classification', 'required' => false],
             ['name' => 'color', 'type' => 'text', 'label' => 'Color', 'required' => false],
             ['name' => 'seating_capacity', 'type' => 'number', 'label' => 'Seating Capacity', 'required' => false],
-//            ['name' => 'standing_capacity', 'type' => 'number', 'label' => 'Standing Capacity', 'required' => false],
+            //            ['name' => 'standing_capacity', 'type' => 'number', 'label' => 'Standing Capacity', 'required' => false],
             ['name' => 'fuel_type', 'type' => 'text', 'label' => 'Fuel Type', 'required' => false],
             ['name' => 'engine_performance', 'type' => 'number', 'label' => 'Engine Performance', 'required' => false],
             ['name' => 'permitted_total_weight', 'type' => 'number', 'label' => 'Permitted Total Weight', 'required' => false],
@@ -98,7 +103,7 @@ class MemoryVehicleController extends Controller
             'plate_number' => 'required|string|max:255',
             'brand' => 'required|string|max:255',
             'model' => 'required|string|max:255',
-            'year' => 'nullable|digits:4|integer|min:1900|max:' . (date('Y') + 1),
+            'year' => 'nullable|digits:4|integer|min:1900|max:'.(date('Y') + 1),
             'type' => 'nullable|string|max:255',
             'vin' => 'nullable|string|max:255',
             'registration_date' => 'nullable|date',
@@ -119,7 +124,7 @@ class MemoryVehicleController extends Controller
             'vehicle_status' => 'nullable|string|max:255',
             'weight' => 'nullable|integer',
             'width' => 'nullable|integer',
-            'condemned' => 'nullable|boolean'
+            'condemned' => 'nullable|boolean',
         ]);
         $validatedData['created_by_id'] = auth()->id(); // Set the creator's user ID
 

@@ -9,3 +9,8 @@ Add config
 Set .env keys:
 
     MEMORY_VEHICLE_MODULE=true
+
+Run PINT
+	
+	./vendor/bin/pint
+

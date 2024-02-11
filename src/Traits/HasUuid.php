@@ -1,4 +1,5 @@
 <?php
+
 namespace Ekstremedia\MemoryApp\Traits;
 
 use Illuminate\Support\Str;

@@ -2,14 +2,13 @@
 
 namespace Ekstremedia\MemoryApp\Http\Controllers;
 
-use Ekstremedia\MemoryApp\Models\MemoryVehicleFuel;
-use Illuminate\Routing\Controller;
 use Ekstremedia\MemoryApp\Models\MemoryVehicle;
+use Ekstremedia\MemoryApp\Models\MemoryVehicleFuel;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class MemoryVehicleFuelController extends Controller
 {
-
     public function index()
     {
         $userId = auth()->id();
@@ -24,10 +23,11 @@ class MemoryVehicleFuelController extends Controller
     {
         $vehicle = MemoryVehicle::where('uuid', $vehicle_uuid)->first();
 
-        if (!$vehicle) {
+        if (! $vehicle) {
             return redirect()->back()->with('error', 'Vehicle not found.');
         }
         $fields = $this->getFormFields();
+
         return view('memoryapp::memoryvehicle.fuel.create', compact('fields', 'vehicle'));
     }
 
@@ -37,7 +37,6 @@ class MemoryVehicleFuelController extends Controller
 
         $validatedData = $this->validateRequest($request);
 
-
         $validatedData['vehicle_id'] = $vehicle->id;
         $validatedData['created_by_id'] = auth()->id(); // If you're tracking who created the fuel entry
 
@@ -45,7 +44,6 @@ class MemoryVehicleFuelController extends Controller
 
         return redirect()->route('memory.vehicles.index')->with('success', 'Vehicle fuel created successfully.');
     }
-
 
     public function show(MemoryVehicle $vehicle)
     {
@@ -55,19 +53,21 @@ class MemoryVehicleFuelController extends Controller
     public function edit(MemoryVehicle $vehicle)
     {
         $fields = $this->getFormFields();
+
         return view('memoryapp::memoryvehicle.edit', compact('vehicle', 'fields'));
     }
 
     public function update(Request $request, MemoryVehicleFuel $fuel)
     {
-//        $validatedData = $this->validateRequest($request);
-//        $vehicle->update($validatedData);
-//        return redirect()->route('memory.vehicles.index')->with('success', "Vehicle $vehicle->name updated successfully.");
+        //        $validatedData = $this->validateRequest($request);
+        //        $vehicle->update($validatedData);
+        //        return redirect()->route('memory.vehicles.index')->with('success', "Vehicle $vehicle->name updated successfully.");
     }
 
     public function destroy(MemoryVehicle $vehicle)
     {
         $vehicle->delete();
+
         return redirect()->route('memory.vehicles.index')->with('success', 'Vehicle deleted successfully.');
     }
 
