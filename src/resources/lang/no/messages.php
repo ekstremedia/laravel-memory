@@ -48,6 +48,7 @@ return [
         'year' => 'År',
         'Edit' => 'Rediger',
         'Delete' => 'Slett',
+        'Update' => 'Oppdater',
         'Save' => 'Lagre',
         'Cancel' => 'Avbryt',
         'Back' => 'Tilbake',
