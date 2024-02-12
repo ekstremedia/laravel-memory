@@ -5,6 +5,7 @@ return [
     'vehicles' => 'Kjøretøy',
     'vehicle' => [
         'create' => 'Opprett kjøretøy',
+        'edit' => 'Rediger kjøretøy',
         'plate_number' => 'REGNR',
         'brand' => 'Merke',
         'name' => 'Navn',

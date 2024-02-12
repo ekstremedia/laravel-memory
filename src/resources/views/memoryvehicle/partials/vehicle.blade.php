@@ -17,7 +17,7 @@
         </div>
         <a href="{{ route('memory.vehicles.edit', $vehicle) }}"
            class="text-green-600 hover:text-indigo-900" title="{{ trans('memoryapp::messages.general.Edit') }}">
-            <i class="fa fa-edit fa-fw"></i>
+            <i class="fa fa-square-pen fa-fw text-2xl "></i>
         </a>
     </div>
     <div class="flex flex-col rounded-lg border bg-indigo-50 px-2 py-2 shadow lg:w-1/3 space-y-2">
