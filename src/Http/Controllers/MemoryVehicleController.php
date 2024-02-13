@@ -24,7 +24,7 @@ class MemoryVehicleController extends Controller
     {
         $fields = $this->getFormFields();
 
-        return view('memoryapp::memoryvehicle.create', compact('fields'));
+        return view('memoryapp::memoryvehicle.form', compact('fields'));
     }
 
     public function store(Request $request)
@@ -44,7 +44,7 @@ class MemoryVehicleController extends Controller
     {
         $fields = $this->getFormFields();
 
-        return view('memoryapp::memoryvehicle.edit', compact('vehicle', 'fields'));
+        return view('memoryapp::memoryvehicle.form', compact('vehicle', 'fields'));
     }
 
     public function update(Request $request, MemoryVehicle $vehicle)

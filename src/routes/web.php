@@ -14,6 +14,6 @@ Route::prefix('memory')->middleware(['web', 'auth'])->group(function () {
     Route::resource('vehicles', MemoryVehicleController::class)->names('memory.vehicles');
 
     // Fuel
-    Route::resource('vehicles/{vehicle_uuid}/fuel', MemoryVehicleFuelController::class)->names('memory.vehicles.fuel');
+    Route::resource('vehicles/{vehicle:uuid}/fuel', MemoryVehicleFuelController::class)->names('memory.vehicles.fuel');
 
 });

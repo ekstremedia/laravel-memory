@@ -19,21 +19,21 @@ class MemoryVehicleFuelController extends Controller
         return view('memoryapp::memoryvehicle.fuel.index', compact('vehicles'));
     }
 
-    public function create($vehicle_uuid)
+    public function create($vehicle)
     {
-        $vehicle = MemoryVehicle::where('uuid', $vehicle_uuid)->first();
+        $vehicle = MemoryVehicle::where('uuid', $vehicle)->first();
 
         if (! $vehicle) {
             return redirect()->back()->with('error', 'Vehicle not found.');
         }
         $fields = $this->getFormFields();
 
-        return view('memoryapp::memoryvehicle.fuel.create', compact('fields', 'vehicle'));
+        return view('memoryapp::memoryvehicle.fuel.form', compact('fields', 'vehicle'));
     }
 
-    public function store(Request $request, $vehicle_uuid)
+    public function store(Request $request, MemoryVehicle $vehicle)
     {
-        $vehicle = MemoryVehicle::where('uuid', $vehicle_uuid)->firstOrFail();
+//        $vehicle = MemoryVehicle::where('uuid', $vehicle_uuid)->firstOrFail();
 
         $validatedData = $this->validateRequest($request);
 
@@ -45,23 +45,23 @@ class MemoryVehicleFuelController extends Controller
         return redirect()->route('memory.vehicles.index')->with('success', 'Vehicle fuel created successfully.');
     }
 
-    public function show(MemoryVehicle $vehicle)
+    public function show(MemoryVehicle $vehicle, MemoryVehicleFuel $fuel)
     {
-        return view('memoryapp::memoryvehicle.show', compact('vehicle'));
+        return view('memoryapp::memoryvehicle.fuel.show', compact('vehicle', 'fuel'));
     }
 
-    public function edit(MemoryVehicle $vehicle)
+    public function edit(MemoryVehicle $vehicle, MemoryVehicleFuel $fuel)
     {
         $fields = $this->getFormFields();
 
-        return view('memoryapp::memoryvehicle.edit', compact('vehicle', 'fields'));
+        return view('memoryapp::memoryvehicle.fuel.form', compact('fields', 'vehicle', 'fuel'));
     }
 
-    public function update(Request $request, MemoryVehicleFuel $fuel)
+    public function update(Request $request, MemoryVehicle $vehicle, MemoryVehicleFuel $fuel)
     {
-        //        $validatedData = $this->validateRequest($request);
-        //        $vehicle->update($validatedData);
-        //        return redirect()->route('memory.vehicles.index')->with('success', "Vehicle $vehicle->name updated successfully.");
+                $validatedData = $this->validateRequest($request);
+                $fuel->update($validatedData);
+                return redirect()->route('memory.vehicles.index')->with('success', "Vehicle fuel $vehicle->name updated successfully.");
     }
 
     public function destroy(MemoryVehicle $vehicle)

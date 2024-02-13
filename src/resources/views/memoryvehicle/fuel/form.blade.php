@@ -1,4 +1,4 @@
-{{-- resources/views/memoryvehicle/fuel/create.blade.php --}}
+{{-- resources/views/memoryvehicle/fuel/form.blade.php --}}
 
 @extends('memoryapp::layouts.app')
 

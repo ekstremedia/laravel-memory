@@ -2,7 +2,7 @@
     <div class="bg-blue-600 w-3">
 
     </div>
-    <div>
-{{ $plate }}
+    <div class="pl-1">
+        {{ $plate }}
     </div>
 </span>

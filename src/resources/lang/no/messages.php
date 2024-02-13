@@ -36,12 +36,21 @@ return [
         'fuel' => [
             'last' => 'Siste fylling',
             'create' => 'Opprett drivstoff',
+            'edit' => 'Rediger drivstoff',
             'type' => 'Drivstofftype',
             'amount' => 'Mengde',
             'price' => 'Pris',
-            'total' => 'Totalt',
+            'total_price' => 'Totalpris',
+            'fuel_price' => 'Drivstoffpris (per liter)',
+            'fuel_type' => 'Drivstofftype',
             'date' => 'Dato',
             'no_fuel' => 'Ikke registrert',
+            'quantity' => 'Mengde',
+            'fuel' => 'Drivstoff',
+            'date_of_fuel' => 'Fyllingsdato',
+            'fuel_quantity' => 'Drivstoffmengde (liter)',
+            'fuel_station_name' => 'Drivstoffstasjon',
+            'mileage' => 'Kilometerstand',
         ],
     ],
     'general' => [
@@ -56,5 +65,7 @@ return [
         'Create' => 'Opprett',
         'Create new' => 'Opprett ny',
         'New' => 'Ny',
+        'Date' => 'Dato',
+        'total_sum' => 'Total sum',
     ]
 ];
